@@ -80,3 +80,7 @@ img {
 #R_field:focus {
   background-color: antiquewhite;
 }
+
+form#timeForm {
+    font-size: 225%;
+}

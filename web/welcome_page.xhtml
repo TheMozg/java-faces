@@ -19,14 +19,17 @@
                       </h1>
                   </header>
               </td>
+              <td>
+                <h1>
+                <h:form id="timeForm">
+                  <h:outputText id="txt_count" value="#{dataView.dateString}" />
+                  <p:poll interval="13" listener="#{dataView.refreshDate}" update="txt_count" />
+                </h:form>
+              </h1>
+              </td>
           </tr>
           <tr>
-            <td>
-              <h:form>
-                <h:outputText id="txt_count" value="#{counterView.dateString}" />
-                <p:poll interval="1" listener="#{counterView.refreshDate}" update="txt_count" />
-              </h:form>
-            </td>
+
           </tr>
       </table>
     </h:body>
