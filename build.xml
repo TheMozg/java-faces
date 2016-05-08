@@ -35,5 +35,17 @@
 		</input>
     <scp file="${dist.war}" todir="${username}:${password}@helios.cs.ifmo.ru:${deploy.dir}" port="2222"/>
 	</target>
-
+	
+	<target name="start-domain">
+		<input message="${login.msg}" addproperty="username"/>
+		<input message="${pass.msg}" addproperty="password">
+			<handler type="secure"/>
+		</input>
+		<sshexec host="helios.cs.ifmo.ru"
+		 username="${username}"
+		 password="${password}"
+		 port="2222"
+		 command="${asadmin.bin} --host localhost -p 10148 start-domain --domaindir ${domain.dir} ${domain.name}"/>
+	</target>
+	
 </project>
