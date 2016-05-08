@@ -23,8 +23,8 @@
           <tr>
             <td>
               <h:form>
-                <h:outputText id="txt_count" value="#{counterView.number}" />
-                <p:poll interval="3" listener="#{counterView.increment}" update="txt_count" />
+                <h:outputText id="txt_count" value="#{counterView.dateString}" />
+                <p:poll interval="1" listener="#{counterView.refreshDate}" update="txt_count" />
               </h:form>
             </td>
           </tr>

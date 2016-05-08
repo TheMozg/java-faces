@@ -3,18 +3,24 @@ package lab9;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 @ManagedBean(name = "counterView")
 @ViewScoped
 public class CounterView implements Serializable {
 
-    private int number;
+    private DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    private Date date = new Date();
+    private String dateString = dateFormat.format(date);
 
-    public int getNumber() {
-        return number;
+    public String getDateString() {
+        return dateString;
     }
 
-    public void increment() {
-        number++;
+    public void refreshDate() {
+      date = new Date();
+      dateString = dateFormat.format(date);
     }
 }
