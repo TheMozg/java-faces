@@ -2,15 +2,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <head>
+    <h:head>
         <title>Лабораторная работа №9</title>
         <link rel="stylesheet" type="text/css" href="style/style.css"/>
-    </head>
+    </h:head>
     <h:body>
-        #{hello.world}
-    </h:body>
-    <body>
       <table>
           <tr>
               <td colspan="3">
@@ -22,9 +21,14 @@
               </td>
           </tr>
           <tr>
-
+            <td>
+              <h:form>
+                <h:outputText id="txt_count" value="#{counterView.number}" />
+                <p:poll interval="3" listener="#{counterView.increment}" update="txt_count" />
+              </h:form>
+            </td>
           </tr>
       </table>
-    </body>
+    </h:body>
 
 </html>

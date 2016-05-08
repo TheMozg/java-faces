@@ -1,10 +1,10 @@
-package org.itmo.lab9;
+package lab9;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean
+@ManagedBean(name = "counterView")
 @ViewScoped
 public class CounterView implements Serializable {
 

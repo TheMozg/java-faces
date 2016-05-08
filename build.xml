@@ -6,11 +6,11 @@
 		<mkdir dir="${build.dir}"/>
 		<javac
 		 srcdir="${src.dir}"
-		 destdir="${build.dir}" 
+		 destdir="${build.dir}"
 		 source="1.6"
 		 target="1.6"
 		 bootclasspath="${rt.jar}"
-		 classpath="${faces.api.jar}"/>
+		 classpath="${faces.api.jar}" />
 	</target>
 
 	<target name="build" depends="compile">
