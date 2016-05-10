@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>zdffzdbxbxbfxbxbxbxbb</title>
+        <title>Лабораторная работа №9</title>
         <link rel="stylesheet" type="text/css" href="style/style.css"/>
     </h:head>
     <h:body>
@@ -14,24 +14,49 @@
           <tr>
               <td colspan="3">
                   <header>
-                      <h1>dxfbxbxbbxfbfxbb
-                          <br/>Выполнили студенты гр. P3210:<br/>Милосердов А.О.<br/>Калугин Ф.И.<br/>Вариант 1022
+                      <h1>
+                        Area check
                       </h1>
                   </header>
               </td>
+          </tr>
+          <tr>
+            <td>
+              X:
+            </td>
               <td>
-                <h1>
-                <h:form id="timeForm">
-                  <h:outputText id="txt_count" value="#{dataView.dateString}" />
-                  <p:poll interval="1" listener="#{dataView.refreshDate}" update="txt_count" />
-                </h:form>
-              </h1>
+                <h:selectOneMenu value="#{default.xval}">
+                  <f:selectItems value="#{default.xvals}"/>
+                </h:selectOneMenu>
+              </td>
+              <td rowspan="3">
+                <img src="img/TrimmedAreas.png" id="pointer_div"/>
               </td>
           </tr>
           <tr>
+            <td>
+              Y:
+            </td>
+            <td>
+
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              Z:
+            </td>
+            <td>
+              <h:form>
+                <h:commandButton action="#{default.setZval(3.3)}" value="3.3" />
+              </h:form>
+            </td>
 
           </tr>
       </table>
+    <h:panelGrid>
+      <h:inputText value="#{default.zval}" />
+    </h:panelGrid>
     </h:body>
 
 </html>
