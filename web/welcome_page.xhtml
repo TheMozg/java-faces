@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<h:html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -10,28 +10,32 @@
         <link rel="stylesheet" type="text/css" href="style/style.css"/>
     </h:head>
     <h:body>
-      <table>
-          <tr>
-              <td colspan="3">
-                  <header>
-                      <h1>Лабораторная работа №9
-                          <br/>Выполнили студенты гр. P3210:<br/>Милосердов А.О.<br/>Калугин Ф.И.<br/>Вариант 1022
-                      </h1>
+
+          <h:panelGrid columns="2" border="1">
+            <h:panelGroup>
+              <header>
+                  <h1>Лабораторная работа №9
+                      <br/>Выполнили студенты гр. P3210:<br/>Милосердов А.О.<br/>Калугин Ф.И.<br/>Вариант 1022
+                    </h1>
                   </header>
-              </td>
-              <td>
-                <h1>
+            </h:panelGroup>
+            <h:panelGroup>
+              <h1>
                 <h:form id="timeForm">
-                  <h:outputText id="txt_count" value="#{dataView.dateString}" />
-                  <p:poll interval="1" listener="#{dataView.refreshDate}" update="txt_count" />
-                  <h:commandButton id="submit" action="weee" value="Weeeeeeeee!" />
+                    <h:outputText id="txt_count" value="#{dataView.dateString}" />
+                    <p:poll interval="1" listener="#{dataView.refreshDate}" update="txt_count" />
                 </h:form>
               </h1>
-              </td>
-          </tr>
-          <tr>
-          </tr>
-      </table>
+            </h:panelGroup>
+
+
+
+            <h:panelGroup>
+              <h:form>
+                <h:commandButton id="submit" action="gotomain" value="Start the shite!" />
+              </h:form>
+            </h:panelGroup>
+          </h:panelGrid>
     </h:body>
 
-</h:html>
+</html>
