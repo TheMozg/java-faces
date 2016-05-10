@@ -6,77 +6,82 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>zdffzdbxbxbfxbxbxbxbb</title>
+        <title>Лабораторная работа №9</title>
         <link rel="stylesheet" type="text/css" href="style/style.css"/>
     </h:head>
     <h:body>
+    <h:form>
       <table>
           <tr>
-              <td colspan="3">
+              <td colspan="2">
                   <header>
-                      <h1>dxfbxbxbbxfbfxbb
-                          <br/>Выполнили студенты гр. P3210:<br/>Милосердов А.О.<br/>Калугин Ф.И.<br/>Вариант 1022
-                      </h1>
+                      <h1>Area check</h1>
                   </header>
               </td>
               <td>
-                <h1>
-                <h:form id="timeForm">
-                  <h:outputText id="txt_count" value="#{dataView.dateString}" />
-                  <p:poll interval="1" listener="#{dataView.refreshDate}" update="txt_count" />
+                <h:form>
+                  <h:commandButton class="mainButton" id="submit" action="gohome" value="Get me outta here!" />
                 </h:form>
-              </h1>
               </td>
           </tr>
           <tr>
-            <td colspan="2">
-              <h:form>
-                <h:commandButton class="mainButton" id="submit" action="gohome" value="Get me outta here!" />
-              </h:form>
-            </td>
+            <td padding-top="3em">X:</td>
+              <td padding-top="3em">
+                <h:selectOneMenu value="#{areaCheck.x}">
+                  <f:selectItems value="#{areaCheck.xvals}"/>
+                </h:selectOneMenu>
+              </td>
+              <td rowspan="3" padding-top="3em"><img src="img/TrimmedAreas.png" id="pointer_div"/></td>
           </tr>
           <tr>
-            <h:form>
-                                
-                <h2>Enter Order</h2>
-                <table>
-                <tr>
-                    <td>X :</td>
-                    <td><h:inputText size="10" value="#{areaCheck.x}" /></td>
-                </tr>
-                <tr>
-                    <td>Y :</td>
-                    <td><h:inputText size="20" value="#{areaCheck.y}" /></td>
-                </tr>
-                <tr>
-                    <td>R :</td>
-                    <td><h:commandButton action="#{areaCheck.addAction(3.3)}" value="3.3" /></td>
-                </tr>
-                </table>
-                
-                <h:dataTable value="#{areaCheck.pointList}" var="p">
-                    <h:column>    				
-                        <f:facet name="header">X</f:facet>    				
-                        #{p.x}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Y</f:facet>
-                        #{p.y}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">R</f:facet>
-                        #{p.r}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Result</f:facet>
-                        #{p.res}
-                    </h:column>
-                </h:dataTable>
+            <td>Y:</td>
+            <td><h:inputText value="#{areaCheck.y}" size="10"/></td>
+          </tr>
+          <tr>
+            <td>R:</td>
+            <td>
+                <h:commandButton action="#{areaCheck.addAction(1)}" value="1" />
+                <h:commandButton action="#{areaCheck.addAction(1.5)}" value="1.5" />
+                <h:commandButton action="#{areaCheck.addAction(2)}" value="2" />
+                <h:commandButton action="#{areaCheck.addAction(2.5)}" value="2.5" />
+                <h:commandButton action="#{areaCheck.addAction(3)}" value="3" />
+            </td>
 
-                   		
-            </h:form>
           </tr>
       </table>
+  <!--</h:form>
+    <h:form>
+      <h:panelGrid>
+        <h:outputText id="txt_x" value="#{default.xval}" />
+        <p:poll interval="1" listener="#{default.xval}" update="txt_x" />
+
+        <h:outputText id="txt_y" value="#{default.yval}" />
+        <p:poll interval="1" listener="#{default.yval}" update="txt_y" />
+
+        <h:outputText id="txt_r" value="#{default.rval}" />
+        <p:poll interval="1" listener="#{default.rval}" update="txt_r" />
+      </h:panelGrid>-->
+
+      <h:dataTable value="#{areaCheck.pointList}" var="p">
+          <h:column>
+              <f:facet name="header">X</f:facet>
+              #{p.x}
+          </h:column>
+          <h:column>
+              <f:facet name="header">Y</f:facet>
+              #{p.y}
+          </h:column>
+          <h:column>
+              <f:facet name="header">R</f:facet>
+              #{p.r}
+          </h:column>
+          <h:column>
+              <f:facet name="header">Result</f:facet>
+              #{p.res}
+          </h:column>
+      </h:dataTable>
+
+    </h:form>
     </h:body>
 
 </html>

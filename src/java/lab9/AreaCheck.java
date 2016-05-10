@@ -3,10 +3,14 @@ package lab9;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import javax.faces.model.SelectItem;
+import javax.annotation.PostConstruct;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
- 
+
 @ManagedBean(name="areaCheck")
 @SessionScoped
 public class AreaCheck implements Serializable{
@@ -14,6 +18,26 @@ public class AreaCheck implements Serializable{
 	String y;
 	String r;
 	String res;
+
+  private List<SelectItem> xvals;
+
+  public List<SelectItem> getXvals() {
+    return xvals;
+  }
+
+  @PostConstruct
+  public void init() {
+    xvals = new ArrayList<SelectItem>();
+    xvals.add(new SelectItem(-5));
+    xvals.add(new SelectItem(-4));
+    xvals.add(new SelectItem(-3));
+    xvals.add(new SelectItem(-2));
+    xvals.add(new SelectItem(-1));
+    xvals.add(new SelectItem(0));
+    xvals.add(new SelectItem(1));
+    xvals.add(new SelectItem(2));
+    xvals.add(new SelectItem(3));
+  }
 
 	public String getX() {
 		return x;
@@ -47,21 +71,21 @@ public class AreaCheck implements Serializable{
 		this.res = res;
 	}
 
-	private static final ArrayList<Point> pointList = 
+	private static final ArrayList<Point> pointList =
 		new ArrayList<Point>(Arrays.asList(
-		
+
 		new Point("A0001", "Intel CPU", "700.00", "1"),
 		new Point("A0002", "Harddisk 10TB", "500.00", "2"),
 		new Point("A0003", "Dell Laptop", "11600.00", "8"),
 		new Point("A0004", "Samsung LCD", "5200.00", "3"),
 		new Point("A0005", "A4Tech Mouse", "100.00", "10")
 	));
-	 
+
 	public ArrayList<Point> getPointList() {
 		return pointList;
 	}
-	
-	public String addAction(String r) {	    
+
+	public String addAction(String r) {
 		Point point = new Point(this.x, this.y, r, this.res);
 		if(point.x == null)
 			point.x = "(empty)";
@@ -77,15 +101,15 @@ public class AreaCheck implements Serializable{
 				point.res = "OUT";
 		}*/
 		pointList.add(point);
-		
+
 		return null;
 	}
- 
-	public String deleteAction(Point point) {	    
+
+	public String deleteAction(Point point) {
 		pointList.remove(point);
 		return null;
 	}
-    
+
     public boolean inputIsCorrect(String x, String y, String r){
 		return false;
 	}
@@ -114,7 +138,7 @@ public class AreaCheck implements Serializable{
 		return false;
 	}
 
-	public static class Point{	
+	public static class Point{
 		String x;
 		String y;
 		String r;
@@ -126,7 +150,7 @@ public class AreaCheck implements Serializable{
 			this.r = r;
 			this.res = res;
 		}
-		
+
 		public String getX() {
 			return x;
 		}
@@ -153,4 +177,3 @@ public class AreaCheck implements Serializable{
 		}
 	}
 }
-
