@@ -29,7 +29,52 @@
               </td>
           </tr>
           <tr>
+            <td colspan="2">
+              <h:form>
+                <h:commandButton class="mainButton" id="submit" action="gohome" value="Get me outta here!" />
+              </h:form>
+            </td>
+          </tr>
+          <tr>
+            <h:form>
+                                
+                <h2>Enter Order</h2>
+                <table>
+                <tr>
+                    <td>X :</td>
+                    <td><h:inputText size="10" value="#{areaCheck.x}" /></td>
+                </tr>
+                <tr>
+                    <td>Y :</td>
+                    <td><h:inputText size="20" value="#{areaCheck.y}" /></td>
+                </tr>
+                <tr>
+                    <td>R :</td>
+                    <td><h:commandButton action="#{areaCheck.addAction(3.3)}" value="3.3" /></td>
+                </tr>
+                </table>
+                
+                <h:dataTable value="#{areaCheck.pointList}" var="p">
+                    <h:column>    				
+                        <f:facet name="header">X</f:facet>    				
+                        #{p.x}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Y</f:facet>
+                        #{p.y}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">R</f:facet>
+                        #{p.r}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Result</f:facet>
+                        #{p.res}
+                    </h:column>
+                </h:dataTable>
 
+                   		
+            </h:form>
           </tr>
       </table>
     </h:body>
