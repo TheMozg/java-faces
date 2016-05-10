@@ -8,8 +8,8 @@
     <navigation-rule>
         <from-view-id>/welcome_page.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>weee</from-outcome>
-            <to-view-id>/test.xhtml</to-view-id>
+            <from-outcome>gotomain</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
             <redirect />
         </navigation-case>
     </navigation-rule>
