@@ -5,6 +5,49 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
+      <script type="text/javascript">
+
+ function imgClickHandler(ClickEvent)
+{
+    var parrentPos = getPosition(ClickEvent.currentTarget);
+    var xPos = ClickEvent.clientX - parrentPos.x;
+    var yPos = ClickEvent.clientY - parrentPos.y;
+
+    var height = ClickEvent.currentTarget.clientHeight;
+    var width  = ClickEvent.currentTarget.clientWidth;
+
+    r = document.getElementById('Rval').value;
+
+    var yVal = height/2 - yPos;
+    var xVal = xPos - width/2;
+
+
+    yVal = (8*yVal)/height;
+    xVal = (8*xVal)/width;
+
+    document.getElementById('mainForm:XVal').value = xVal;
+    document.getElementById('mainForm:YVal').value = yVal;
+
+    document.getElementById('mainForm:hiddenSubmit').click();
+}
+
+function getPosition(element)
+{
+    var xPos = 0;
+    var yPos = 0;
+
+    while(element)
+    {
+        xPos += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPos += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+
+    return {x: xPos, y:yPos};
+}
+
+
+   </script>
     <h:head>
         <title>Лабораторная работа №9</title>
         <link rel="stylesheet" type="text/css" href="style/style.css"/>
@@ -55,18 +98,6 @@
             </td>
           </tr>
       </table>
-  <!--</h:form>
-    <h:form>
-      <h:panelGrid>
-        <h:outputText id="txt_x" value="#{default.xval}" />
-        <p:poll interval="1" listener="#{default.xval}" update="txt_x" />
-
-        <h:outputText id="txt_y" value="#{default.yval}" />
-        <p:poll interval="1" listener="#{default.yval}" update="txt_y" />
-
-        <h:outputText id="txt_r" value="#{default.rval}" />
-        <p:poll interval="1" listener="#{default.rval}" update="txt_r" />
-      </h:panelGrid>-->
 
       <h:dataTable value="#{areaCheck.pointList}" var="p">
           <h:column>
