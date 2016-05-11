@@ -67,7 +67,7 @@ public class ViewBean implements Serializable
         try
         {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
-            BufferedImage img = ImgGenerator.genImage(historyBean.getPointList(), imageWidht, imageHeight, 5);
+            BufferedImage img = ImgGenerator.genImage(historyBean.getPointList(), imageWidht, imageHeight, historyBean.getR());
 
             ImageIO.write(img, "png", os);
 
