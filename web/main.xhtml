@@ -11,6 +11,8 @@
     </h:head>
     <h:body>
     <h:form>
+        <h:message for="y" style="color:red" />
+        <br/>
       <table>
           <tr>
               <td colspan="2">
@@ -35,7 +37,12 @@
           </tr>
           <tr>
             <td>Y:</td>
-            <td><h:inputText value="#{areaCheck.y}" size="10"/></td>
+            <td>
+                <h:inputText id="y" value="#{areaCheck.y}" size="10">
+                    <f:convertNumber type="number" locale="en-US"/>
+                </h:inputText>
+            </td>
+
           </tr>
           <tr>
             <td>R:</td>
@@ -46,7 +53,6 @@
                 <h:commandButton action="#{areaCheck.addAction(2.5)}" value="2.5" />
                 <h:commandButton action="#{areaCheck.addAction(3)}" value="3" />
             </td>
-
           </tr>
       </table>
   <!--</h:form>
