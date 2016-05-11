@@ -59,8 +59,8 @@ public class ImgGenerator
         
         g.setColor(Color.GRAY);
 
-        g.fillArc(xc - R, yc - R, 2 * R, 2 * R, -90, -90);
-        g.fillRect(xc, yc - R, R/2, R);
+        g.fillArc(xc - R/2, yc - R/2, R, R, -270, 90);
+        g.fillRect(xc, yc, R, R/2);
         g.fillPolygon(getTrianglePolygon(width, height, R));
     }
 
@@ -95,11 +95,11 @@ public class ImgGenerator
         x_points[0] = width/2;
         y_points[0] = height/2;
 
-        x_points[1] = width/2 + R;
+        x_points[1] = width/2 - R/2;
         y_points[1] = height/2;
 
         x_points[2] = width/2;
-        y_points[2] = height/2 + R;
+        y_points[2] = height/2 + R/2;
 
         result = new Polygon(x_points,y_points,num);
         return result;
