@@ -10,7 +10,7 @@
 		 source="1.6"
 		 target="1.6"
 		 bootclasspath="${rt.jar}"
-		 classpath="${faces.api.jar}" />
+		 classpath="${faces.api.jar}:${primefaces.jar}" />
 	</target>
 
 	<target name="build" depends="compile">
@@ -35,7 +35,7 @@
 		</input>
     <scp file="${dist.war}" todir="${username}:${password}@helios.cs.ifmo.ru:${deploy.dir}" port="2222"/>
 	</target>
-	
+
 	<target name="start-domain">
 		<input message="${login.msg}" addproperty="username"/>
 		<input message="${pass.msg}" addproperty="password">
@@ -47,5 +47,5 @@
 		 port="2222"
 		 command="${asadmin.bin} --host localhost -p 10148 start-domain --domaindir ${domain.dir} ${domain.name}"/>
 	</target>
-	
+
 </project>
