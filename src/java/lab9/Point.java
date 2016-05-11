@@ -5,6 +5,7 @@ package lab9;
 		double y;
 		double r;
 		String res;
+		boolean isInside;
 
 		public Point(double x, double y, double r, String res) {
 			this.x = x;
@@ -36,5 +37,11 @@ package lab9;
 		}
 		public void setRes(String res) {
 			this.res = res;
+		}
+		public boolean getIsInside() {
+			return isInside;
+		}
+		public void setIsInside(boolean isInside) {
+			this.isInside = isInside;
 		}
 	}

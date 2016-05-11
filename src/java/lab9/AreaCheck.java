@@ -74,11 +74,16 @@ public class AreaCheck implements Serializable{
 	}
 
 	public String addAction(double r) {
-		this.r = r;
+		if(r==0)
+			this.r=1;
+		else
+			this.r = r;
 		if(!pointList.isEmpty()){
 			Point lastPoint = pointList.get(0);
 			if(lastPoint.x == this.x && lastPoint.y == this.y)
 				return null;
+			if(r==0)
+				this.r=lastPoint.r;
 		}
 
 		if(contains(x,y,r))

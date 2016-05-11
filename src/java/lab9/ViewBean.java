@@ -70,9 +70,9 @@ public class ViewBean implements Serializable
             ArrayList<Point> pointList = historyBean.getPointList();
             for(Point p : pointList){
                 if(historyBean.contains(p.x,p.y,historyBean.getR()))
-			        p.res = "IN";
+			        p.isInside = true;
 		          else
-			        p.res = "OUT";
+			        p.isInside = false;
             }
             BufferedImage img = ImgGenerator.genImage(pointList, imageWidht, imageHeight, historyBean.getR());
 

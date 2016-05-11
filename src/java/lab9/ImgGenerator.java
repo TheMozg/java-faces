@@ -68,7 +68,7 @@ public class ImgGenerator
     {
         for(Point item : items)
         {
-            Color color = (item.res == "IN" ? Color.GREEN : Color.RED);
+            Color color = (item.isInside ? Color.GREEN : Color.RED);
             g.setColor(color);
 
             int item_y, item_x;

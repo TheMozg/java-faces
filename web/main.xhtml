@@ -6,11 +6,12 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Лабораторная работа №9</title>
+        <title>Лабораторная работа №9A</title>
         <link rel="stylesheet" type="text/css" href="style/style.css"/>
+        <h:outputScript name="check.js" />
     </h:head>
     <h:body>
-    <h:form>
+    <h:form id="mainForm">
         <h:message for="y" style="color:red" />
         <br/>
       <table>
@@ -38,7 +39,7 @@
           <tr>
             <td>Y:</td>
             <td>
-                <h:inputText id="y" value="#{areaCheck.y}" size="10">
+                <h:inputText id="y" required="true" value="#{areaCheck.y}" size="10">
                     <f:convertNumber type="number" locale="en-US"/>
                 </h:inputText>
             </td>
@@ -52,6 +53,8 @@
                 <h:commandButton action="#{areaCheck.addAction(2)}" value="2" />
                 <h:commandButton action="#{areaCheck.addAction(2.5)}" value="2.5" />
                 <h:commandButton action="#{areaCheck.addAction(3)}" value="3" />
+                <h:commandButton action="#{areaCheck.addAction(0)}"  style="display: none;" id="hiddenSubmit" />
+                <h:inputText id="hiddenx" value="#{areaCheck.x}" style="display: none;" />
             </td>
           </tr>
       </table>
