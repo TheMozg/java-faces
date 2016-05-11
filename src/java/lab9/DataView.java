@@ -1,15 +1,11 @@
 package lab9;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-@ManagedBean(name = "dataView")
-@ViewScoped
 public class DataView implements Serializable {
 
     private DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");

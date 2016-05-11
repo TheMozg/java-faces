@@ -5,6 +5,16 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
    version="2.0">
+   <managed-bean>
+       <managed-bean-name>dataView</managed-bean-name>
+       <managed-bean-class>lab9.DataView</managed-bean-class>
+       <managed-bean-scope>view</managed-bean-scope>
+   </managed-bean>
+   <managed-bean>
+       <managed-bean-name>areaCheck</managed-bean-name>
+       <managed-bean-class>lab9.AreaCheck</managed-bean-class>
+       <managed-bean-scope>session</managed-bean-scope>
+   </managed-bean>
     <navigation-rule>
         <from-view-id>/welcome_page.xhtml</from-view-id>
         <navigation-case>
@@ -21,4 +31,5 @@
             <redirect />
         </navigation-case>
     </navigation-rule>
+
 </faces-config>

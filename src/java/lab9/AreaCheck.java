@@ -8,11 +8,6 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 import javax.annotation.PostConstruct;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
-@ManagedBean(name="areaCheck")
-@SessionScoped
 public class AreaCheck implements Serializable{
 	double x;
 	double y;
@@ -84,7 +79,7 @@ public class AreaCheck implements Serializable{
 			this.res = "IN";
 		else
 			this.res = "OUT";
-			
+
 		Point point = new Point(this.x, this.y, this.r, this.res);
 		pointList.add(point);
 
