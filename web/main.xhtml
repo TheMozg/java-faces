@@ -34,7 +34,7 @@
                   <f:selectItems value="#{areaCheck.xvals}"/>
                 </h:selectOneMenu>
               </td>
-              <td rowspan="3" padding-top="3em"><p:graphicImage onclick="imgClickHandler(event)" id="image" value="#{ViewBean.image}" cache="false"/></td>
+              <td rowspan="4" padding-top="3em"><p:graphicImage style="horizontal-align: middle" onclick="imgClickHandler(event)" id="image" value="#{ViewBean.image}" cache="false"/></td>
           </tr>
           <tr>
             <td>Y:</td>
@@ -54,22 +54,18 @@
                 <h:commandButton action="#{areaCheck.addAction(2.5)}" value="2.5" />
                 <h:commandButton action="#{areaCheck.addAction(3)}" value="3" />
                 <h:commandButton action="#{areaCheck.addAction(0)}"  style="display: none;" id="hiddenSubmit" />
-                <h:inputText id="hiddenx" value="#{areaCheck.x}" style="display: none;" />
+                <h:inputText id="hiddenx" value="#{areaCheck.xp}" style="display: none;">
+                    <f:convertNumber type="number" locale="en-US"/>
+                </h:inputText>
+            </td>
+          </tr>
+            <tr>
+            <td>Clear</td>
+            <td>
+                <h:commandButton action="#{areaCheck.clearAction()}" value="Clear" />
             </td>
           </tr>
       </table>
-  <!--</h:form>
-    <h:form>
-      <h:panelGrid>
-        <h:outputText id="txt_x" value="#{default.xval}" />
-        <p:poll interval="1" listener="#{default.xval}" update="txt_x" />
-
-        <h:outputText id="txt_y" value="#{default.yval}" />
-        <p:poll interval="1" listener="#{default.yval}" update="txt_y" />
-
-        <h:outputText id="txt_r" value="#{default.rval}" />
-        <p:poll interval="1" listener="#{default.rval}" update="txt_r" />
-      </h:panelGrid>-->
 
       <h:dataTable value="#{areaCheck.pointList}" var="p">
           <h:column>

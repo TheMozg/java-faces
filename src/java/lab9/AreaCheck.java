@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 
 public class AreaCheck implements Serializable{
 	double x;
+	double xp;
 	double y;
 	double r;
 	String res;
@@ -40,6 +41,14 @@ public class AreaCheck implements Serializable{
 
 	public void setX(double x) {
 		this.x = x;
+	}
+	
+	public double getXp() {
+		return xp;
+	}
+
+	public void setXp(double xp) {
+		this.xp = xp;
 	}
 
 	public double getY() {
@@ -73,28 +82,35 @@ public class AreaCheck implements Serializable{
 		return pointList;
 	}
 
-	public String addAction(double r) {
-		if(r==0)
+	public void addAction(double r) {
+		double xx;
+		if(r==0.0){
 			this.r=1;
-		else
+			xx=this.xp;
+		}
+		else{
 			this.r = r;
+			xx=this.x;
+		}
 		if(!pointList.isEmpty()){
 			Point lastPoint = pointList.get(0);
-			if(lastPoint.x == this.x && lastPoint.y == this.y)
-				return null;
+			if(lastPoint.x == xx && lastPoint.y == this.y)
+				return;
 			if(r==0)
 				this.r=lastPoint.r;
 		}
 
-		if(contains(x,y,r))
+		if(contains(xx,this.y,this.r))
 			this.res = "IN";
 		else
 			this.res = "OUT";
 
-		Point point = new Point(this.x, this.y, this.r, this.res);
+		Point point = new Point(xx, this.y, this.r, this.res);
 		pointList.add(0, point);
+	}
 
-		return null;
+	public void clearAction() {
+		pointList.clear();
 	}
 
 	public boolean contains(double x, double y, double r)
